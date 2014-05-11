@@ -5,15 +5,15 @@ public class RandomNormal extends DefaultReporter
 {
 
 	//Use:  rngs:rnd-norm <stream-id> <mean> <std-dev>
-	
-    public Syntax getSyntax() 
+
+    public Syntax getSyntax()
     {
-	   int[] right = new int[] { Syntax.TYPE_NUMBER, Syntax.TYPE_NUMBER, Syntax.TYPE_NUMBER };
-	   int ret = Syntax.TYPE_NUMBER;
+	   int[] right = new int[] { Syntax.NumberType(), Syntax.NumberType(), Syntax.NumberType() };
+	   int ret = Syntax.NumberType();
 	   return Syntax.reporterSyntax( right, ret );
     }
-    
-    public Object report(Argument args[], Context context)  throws ExtensionException 
+
+    public Object report(Argument args[], Context context)  throws ExtensionException
     {
 		try {
 			int key = args[0].getIntValue();
@@ -23,7 +23,7 @@ public class RandomNormal extends DefaultReporter
 			return nm.nextDouble();
 		} catch (Exception e) {
 			System.out.println("Something went wrong in RandomNormal: " + e.toString());
-		}    
+		}
 		return 0f;
     }
 }
@@ -32,9 +32,9 @@ public class RandomNormal extends DefaultReporter
 Copyright (c) 2009 Adam MacKenzie
 Portions of code Copyright (c) 2007 David O'Sullivan
 
-Packages cern.colt* , cern.jet*, cern.clhep 
+Packages cern.colt* , cern.jet*, cern.clhep
 
-Copyright (c) 1999 CERN - European Organization for Nuclear Research. 
+Copyright (c) 1999 CERN - European Organization for Nuclear Research.
 Permission to use, copy, modify, distribute and sell this software and its documentation for any purpose is hereby granted without fee, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation. CERN makes no representations about the suitability of this software for any purpose. It is provided "as is" without expressed or implied warranty.
 
 Permission is hereby granted, free of charge, to any person

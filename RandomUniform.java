@@ -1,14 +1,12 @@
 import org.nlogo.api.*;
-import cern.jet.random.*;
+import cern.jet.random.Uniform;
 
-public class RandomExp extends DefaultReporter
+public class RandomUniform extends DefaultReporter
 {
-
-	//Use:  rngs:rnd-exponential <stream-id> <mean>
 
     public Syntax getSyntax()
     {
-	   int[] right = new int[] { Syntax.NumberType(), Syntax.NumberType() };
+	   int[] right = new int[] { Syntax.NumberType(), Syntax.NumberType(), Syntax.NumberType() };
 	   int ret = Syntax.NumberType();
 	   return Syntax.reporterSyntax( right, ret );
     }
@@ -16,26 +14,20 @@ public class RandomExp extends DefaultReporter
     public Object report(Argument args[], Context context)  throws ExtensionException
     {
 		try {
-			int key = args[0].getIntValue();
-			double mean = args[1].getDoubleValue();
-			Exponential dist = new Exponential(mean, RNGExtension.RNGs.get(key));
-			return dist.nextDouble();
+			int key = args[0].getIntValue(); /*stream-id*/
+			double rangeLow = args[1].getDoubleValue(); /*interval FROM */
+                        double rangeHigh = args[2].getDoubleValue(); /* interval TO */
+                        Uniform u = new Uniform(rangeLow, rangeHigh,RNGExtension.RNGs.get(key));
+			return u.nextDouble();
 		} catch (Exception e) {
-			System.out.println("Something went wrong in RandomExponential: " + e.toString());
+			System.out.println("Something went wrong in RandomUniform: " + e.toString());
 		}
 		return 0f;
     }
 }
 
 /*
-Copyright (c) 2009 Adam MacKenzie
-Portions of code Copyright (c) 2007 David O'Sullivan
-
-Packages cern.colt* , cern.jet*, cern.clhep
-
-Copyright (c) 1999 CERN - European Organization for Nuclear Research.
-Permission to use, copy, modify, distribute and sell this software and its documentation for any purpose is hereby granted without fee, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation. CERN makes no representations about the suitability of this software for any purpose. It is provided "as is" without expressed or implied warranty.
-
+Copyright (c) 2007 David O'Sullivan
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

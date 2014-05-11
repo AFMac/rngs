@@ -1,10 +1,10 @@
 import org.nlogo.api.*;
 import cern.jet.random.*;
 
-public class RandomExp extends DefaultReporter
+public class RandomVM extends DefaultReporter
 {
 
-	//Use:  rngs:rnd-exponential <stream-id> <mean>
+	//Use:  rngs:rnd-vm <stream-id> <freedom>
 
     public Syntax getSyntax()
     {
@@ -17,25 +17,24 @@ public class RandomExp extends DefaultReporter
     {
 		try {
 			int key = args[0].getIntValue();
-			double mean = args[1].getDoubleValue();
-			Exponential dist = new Exponential(mean, RNGExtension.RNGs.get(key));
-			return dist.nextDouble();
+			double freedom = args[1].getDoubleValue();
+			VonMises vm = new VonMises(freedom, RNGExtension.RNGs.get(key));
+			return vm.nextDouble();
 		} catch (Exception e) {
-			System.out.println("Something went wrong in RandomExponential: " + e.toString());
+			System.out.println("Something went wrong in RandomVM: " + e.toString());
 		}
 		return 0f;
     }
 }
 
 /*
-Copyright (c) 2009 Adam MacKenzie
+Copyright (c) 2014 Adam MacKenzie
 Portions of code Copyright (c) 2007 David O'Sullivan
 
 Packages cern.colt* , cern.jet*, cern.clhep
 
 Copyright (c) 1999 CERN - European Organization for Nuclear Research.
 Permission to use, copy, modify, distribute and sell this software and its documentation for any purpose is hereby granted without fee, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation. CERN makes no representations about the suitability of this software for any purpose. It is provided "as is" without expressed or implied warranty.
-
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

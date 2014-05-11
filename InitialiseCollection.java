@@ -9,18 +9,18 @@ import org.nlogo.api.*;
 
 public class InitialiseCollection extends DefaultCommand
 {
-    public Syntax getSyntax() 
+    public Syntax getSyntax()
     {
 	   return Syntax.commandSyntax();
     }
-    
-    public void perform(Argument args[], Context context) throws ExtensionException 
+
+    public void perform(Argument args[], Context context) throws ExtensionException
     {
 		try {
 			RNGExtension.RNGs.clear();
 		} catch (Exception e) {
 			System.out.println("Something went wrong in InitialiseCollection: " + e.toString());
-		}    	
+		}
     }
 }
 

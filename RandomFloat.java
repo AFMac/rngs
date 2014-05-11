@@ -3,14 +3,14 @@ import org.nlogo.api.*;
 public class RandomFloat extends DefaultReporter
 {
 
-    public Syntax getSyntax() 
+    public Syntax getSyntax()
     {
-	   int[] right = new int[] { Syntax.TYPE_NUMBER, Syntax.TYPE_NUMBER };
-	   int ret = Syntax.TYPE_NUMBER;
+	   int[] right = new int[] { Syntax.NumberType(), Syntax.NumberType() };
+	   int ret = Syntax.NumberType();
 	   return Syntax.reporterSyntax( right, ret );
     }
-    
-    public Object report(Argument args[], Context context)  throws ExtensionException 
+
+    public Object report(Argument args[], Context context)  throws ExtensionException
     {
 		try {
 			int key = args[0].getIntValue();
@@ -18,7 +18,7 @@ public class RandomFloat extends DefaultReporter
 			return RNGExtension.RNGs.get(key).nextFloat() * range;
 		} catch (Exception e) {
 			System.out.println("Something went wrong in RandomFloat: " + e.toString());
-		}    
+		}
 		return 0f;
     }
 }
