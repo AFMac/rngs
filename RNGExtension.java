@@ -5,18 +5,20 @@ import cern.jet.random.engine.MersenneTwister;
 public class RNGExtension extends DefaultClassManager {
 
 	static Hashtable<Integer, MersenneTwister> RNGs = new Hashtable<Integer, MersenneTwister>(30);
-	
-    public void load(PrimitiveManager primitiveManager) 
+
+    public void load(PrimitiveManager primitiveManager)
     {
     	primitiveManager.addPrimitive("init", new InitialiseCollection());
     	primitiveManager.addPrimitive("set-seed", new RNGSeed());
-    	primitiveManager.addPrimitive("rnd-float", new RandomFloat());
-	primitiveManager.addPrimitive("rnd-norm", new RandomNormal());
+    	//primitiveManager.addPrimitive("rnd-float", new RandomFloat()); **replaced with Uniform
+	primitiveManager.addPrimitive("rnd-uniform", new RandomUniform());
+        primitiveManager.addPrimitive("rnd-norm", new RandomNormal());
 	primitiveManager.addPrimitive("rnd-poisson", new RandomPoisson());
 	primitiveManager.addPrimitive("rnd-gamma", new RandomGamma());
 	primitiveManager.addPrimitive("rnd-exponential", new RandomExp());
 	primitiveManager.addPrimitive("rnd-negbinomial", new NegBinomial());
 	primitiveManager.addPrimitive("rnd-beta", new RandomBeta());
+        primitiveManager.addPrimitive("rnd-vm", new RandomVM());
     }
 }
 
@@ -25,9 +27,9 @@ Copyright (c) 2009 Adam MacKenzie
 Based on code that was:
 Copyright (c) 2007 David O'Sullivan
 
-Packages cern.colt* , cern.jet*, cern.clhep 
+Packages cern.colt* , cern.jet*, cern.clhep
 
-Copyright (c) 1999 CERN - European Organization for Nuclear Research. 
+Copyright (c) 1999 CERN - European Organization for Nuclear Research.
 Permission to use, copy, modify, distribute and sell this software and its documentation for any purpose is hereby granted without fee, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation. CERN makes no representations about the suitability of this software for any purpose. It is provided "as is" without expressed or implied warranty.
 
 
