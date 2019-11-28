@@ -1,17 +1,12 @@
-/*
- * Created on 19/10/2006
- *
- * To change the template for this generated file go to
- * Window>Preferences>Java>Code Generation>Code and Comments
- */
-
 import org.nlogo.api.*;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
-public class InitialiseCollection extends DefaultCommand
+public class InitialiseCollection implements Command
 {
     public Syntax getSyntax()
     {
-	   return Syntax.commandSyntax();
+	   return SyntaxJ.commandSyntax();
     }
 
     public void perform(Argument args[], Context context) throws ExtensionException

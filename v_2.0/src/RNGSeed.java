@@ -1,14 +1,16 @@
 import org.nlogo.api.*;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 import java.util.Date;
 import cern.jet.random.engine.MersenneTwister;
 import java.lang.*;
 
-public class RNGSeed extends DefaultCommand
+public class RNGSeed implements Command
 {
     public Syntax getSyntax()
     {
 	   int[] right = new int[] { Syntax.NumberType(), Syntax.NumberType() };
-	   return Syntax.commandSyntax( right );
+	   return SyntaxJ.commandSyntax( right );
     }
 
     public void perform(Argument args[], Context context) throws ExtensionException
@@ -29,6 +31,9 @@ public class RNGSeed extends DefaultCommand
 }
 
 /*
+Copyright (c) 2009 Adam MacKenzie
+Updated to v2.0 for compatibility to NetLogo 6.1 in 2019
+
 Copyright (c) 2007 David O'Sullivan
 
 Packages cern.colt* , cern.jet*, cern.clhep

@@ -10,14 +10,13 @@ public class RNGExtension extends DefaultClassManager {
     {
     	primitiveManager.addPrimitive("init", new InitialiseCollection());
     	primitiveManager.addPrimitive("set-seed", new RNGSeed());
-    	//primitiveManager.addPrimitive("rnd-float", new RandomFloat()); **replaced with Uniform
-	primitiveManager.addPrimitive("rnd-uniform", new RandomUniform());
+    	primitiveManager.addPrimitive("rnd-uniform", new RandomUniform());
         primitiveManager.addPrimitive("rnd-norm", new RandomNormal());
-	primitiveManager.addPrimitive("rnd-poisson", new RandomPoisson());
-	primitiveManager.addPrimitive("rnd-gamma", new RandomGamma());
-	primitiveManager.addPrimitive("rnd-exponential", new RandomExp());
-	primitiveManager.addPrimitive("rnd-negbinomial", new NegBinomial());
-	primitiveManager.addPrimitive("rnd-beta", new RandomBeta());
+        primitiveManager.addPrimitive("rnd-poisson", new RandomPoisson());
+        primitiveManager.addPrimitive("rnd-gamma", new RandomGamma());
+        primitiveManager.addPrimitive("rnd-exponential", new RandomExp());
+        primitiveManager.addPrimitive("rnd-negbinomial", new NegBinomial());
+        primitiveManager.addPrimitive("rnd-beta", new RandomBeta());
         primitiveManager.addPrimitive("rnd-vm", new RandomVM());
     }
 }

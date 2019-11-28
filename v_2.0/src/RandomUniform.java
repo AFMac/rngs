@@ -1,14 +1,16 @@
 import org.nlogo.api.*;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 import cern.jet.random.Uniform;
 
-public class RandomUniform extends DefaultReporter
+public class RandomUniform implements Reporter
 {
 
     public Syntax getSyntax()
     {
 	   int[] right = new int[] { Syntax.NumberType(), Syntax.NumberType(), Syntax.NumberType() };
 	   int ret = Syntax.NumberType();
-	   return Syntax.reporterSyntax( right, ret );
+	   return SyntaxJ.reporterSyntax( right, ret );
     }
 
     public Object report(Argument args[], Context context)  throws ExtensionException
@@ -27,6 +29,9 @@ public class RandomUniform extends DefaultReporter
 }
 
 /*
+Copyright (c) 2009 Adam MacKenzie
+Updated to v2.0 for compatibility to NetLogo 6.1 in 2019
+
 Copyright (c) 2007 David O'Sullivan
 
 Permission is hereby granted, free of charge, to any person

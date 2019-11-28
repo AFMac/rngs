@@ -1,16 +1,17 @@
 import org.nlogo.api.*;
 import cern.jet.random.*;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
 
-public class RandomVM extends DefaultReporter
+public class RandomVM implements Reporter
 {
-
 	//Use:  rngs:rnd-vm <stream-id> <freedom>
 
     public Syntax getSyntax()
     {
 	   int[] right = new int[] { Syntax.NumberType(), Syntax.NumberType() };
 	   int ret = Syntax.NumberType();
-	   return Syntax.reporterSyntax( right, ret );
+	   return SyntaxJ.reporterSyntax( right, ret );
     }
 
     public Object report(Argument args[], Context context)  throws ExtensionException
@@ -29,6 +30,8 @@ public class RandomVM extends DefaultReporter
 
 /*
 Copyright (c) 2014 Adam MacKenzie
+Updated to v2.0 for compatibility to NetLogo 6.1 in 2019
+
 Portions of code Copyright (c) 2007 David O'Sullivan
 
 Packages cern.colt* , cern.jet*, cern.clhep
