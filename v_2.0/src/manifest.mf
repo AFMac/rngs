@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Extension-Name: rngs
+Class-Manager: RNGExtension
+NetLogo-Extension-API-Version: 6.1
