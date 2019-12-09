@@ -9,14 +9,15 @@ Function of the extension requires the colt.jar library (distributed with the ex
 
 ## USAGE
 This extension includes the following random distributions:
-  *Beta
-  *Exponential
-  *Gamma
-  *Negative Binomial
-  *Normal
-  *Poisson
-  *Uniform
-  *Von Mises
+
+  * Beta
+  * Exponential
+  * Gamma
+  * Negative Binomial
+  * Normal
+  * Poisson
+  * Uniform
+  * Von Mises
 
 Prior to first use, the extension must be initialized using the `rngs:init` command.  It is recommended this be placed into a "setup" type routine before your model is run.
 
