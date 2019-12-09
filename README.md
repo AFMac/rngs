@@ -21,7 +21,9 @@ This extension includes the following random distributions:
 
 Prior to first use, the extension must be initialized using the `rngs:init` command.  It is recommended this be placed into a "setup" type routine before your model is run.
 
-Multiple individual random number streams can be used, each with their own seed.  The syntax is `rngs:set-seed <stream id> <seed>`, with integers specified for both <stream id> and <seed> parameters.  An example is:
+Multiple individual random number streams can be used, each with their own seed.  The syntax is 
+`rngs:set-seed <stream id> <seed>` 
+with integers specified for both <stream id> and <seed> parameters.  An example is:
   
   `rngs:set-seed 1 100` - This defines stream 1 with a seed of 100
 
