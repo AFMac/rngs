@@ -21,16 +21,21 @@ This extension includes the following random distributions:
 
 Prior to first use, the extension must be initialized using the `rngs:init` command.  It is recommended this be placed into a "setup" type routine before your model is run.
 
-Multiple individual random number streams can be used, each with their own seed.  The syntax is 
+Multiple individual random number streams can be used, each with their own seed.  The syntax is
+
 `rngs:set-seed <stream id> <seed>` 
+
 with integers specified for both <stream id> and <seed> parameters.  An example is:
   
   `rngs:set-seed 1 100` - This defines stream 1 with a seed of 100
 
 ## Syntax
 _Exponential Distribution_
+
 Syntax: `rngs:rnd-exponential <stream id> <lambda>`
+
 Notes: Lambda value can be non-integer (a double), but must be > 0
+
 Example: `rngs:rnd-exponential 1 5`
 
 _Gamma Distribution_
